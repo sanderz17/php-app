@@ -1,0 +1,38 @@
+{
+	"info": {
+		"_postman_id": "29c3e5f3-eca4-4949-8636-cdf61d88ebcd",
+		"name": "cb_shinstation",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "https://ssapi.shipstation.com/orders",
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Basic YzAwMTliNjUzNWNkNDU1MWEyZTdkNTEyN2Q1MWNjNmM6NmE0M2U1Yjg5MDFiNDlmOWJiM2MzMzc2MDI4OGMzN2M=",
+						"type": "default"
+					}
+				],
+				"url": {
+					"raw": "https://ssapi.shipstation.com/orders",
+					"protocol": "https",
+					"host": [
+						"ssapi",
+						"shipstation",
+						"com"
+					],
+					"path": [
+						"orders"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}

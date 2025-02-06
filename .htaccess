@@ -1,0 +1,158 @@
+RewriteOptions inherit
+# For security reasons, Option followsymlinks cannot be overridden.
+#Options +FollowSymLinks
+Options +SymLinksIfOwnerMatch
+RewriteEngine On
+
+## Force HTTP to HTTPS ##
+#RewriteCond %{HTTPS} !=on
+#RewriteRule ^(.*)$ https://%{HTTP_HOST}%{REQUEST_URI} [L,R=301,NE] 
+RewriteCond %{HTTP_HOST} ^example\.com$ [NC]
+RewriteRule ^(.*)$ http://www.example.com/$1 [R=301,L]
+
+RewriteRule ^404/?$ 404.php [NC,L]
+
+RewriteRule ^apanel/?$ apanel/index.php [NC,L]
+RewriteRule ^JR2806/?$ index.php [NC,L]
+
+RewriteRule ^about/?$ about.php [NC,L]
+RewriteRule ^blog/?$ blog.php [NC,L]
+
+RewriteRule ^blog-details/?$ blog_details.php [NC,L]
+
+RewriteRule ^blog-details/([A-Za-z0-9-_]+)/?$ blog_details.php?id=$1 [NC,L]
+
+RewriteRule ^cart/?$ cart.php [NC,L]
+
+RewriteRule ^checkout/?$ checkout.php [NC,L]
+RewriteRule ^checkout/([A-Za-z0-9-_]+)/?$ checkout.php?user=$1 [NC,L]
+
+RewriteRule ^contact/?$ contact.php [NC,L]
+
+RewriteRule ^faq/?$ faq.php [NC,L]
+
+RewriteRule ^login/?$ login.php [NC,L]
+
+RewriteRule ^signup/?$ signup.php [NC,L]
+
+RewriteRule ^news/?$ news.php [NC,L]
+
+RewriteRule ^product/?$ product.php [NC,L]
+
+RewriteRule ^privacy-policy/?$ privacy_policy.php [NC,L]
+RewriteRule ^bulletproof-guarantee/?$ bulletproof_guarantee.php [NC,L]
+RewriteRule ^get-custom-quote/?$ get_custom_quote.php [NC,L]
+
+RewriteRule ^shop/([A-Za-z0-9-_]+)/?$ product_details.php?slug=$1 [NC,L]
+RewriteRule ^shop/([A-Za-z0-9-_]+)/([A-Za-z0-9-_]+)/?$ product_details.php?slug=$1&id=$2 [NC,L]
+
+RewriteRule ^shipping-returns/?$ shipping_returns.php [NC,L]
+
+RewriteRule ^terms-conditions/?$ terms_conditions.php [NC,L]
+
+RewriteRule ^thank-you/?$ thank_you.php [NC,L]
+
+RewriteRule ^video/?$ video.php [NC,L]
+
+RewriteRule ^profile/?$ profile.php [NC,L]
+RewriteRule ^order-history/?$ order_history.php [NC,L]
+
+RewriteRule ^profile-update/?$ profile_edit.php [NC,L]
+RewriteRule ^address-update/?$ address_edit.php [NC,L]
+
+RewriteRule ^see-what-you-shoot/?$ see_what_you_shoot.php [NC,L]
+
+RewriteRule ^activate-account/([A-Za-z0-9-_]+)/([A-Za-z0-9-_]+)/?$ activate_account.php?uid=$1&activation_code=$2 [NC,L]
+RewriteRule ^activate-account/([A-Za-z0-9-_]+)/([A-Za-z0-9-_]+)/([A-Za-z0-9-_]+)/?$ activate_account.php?uid=$1&pwd=$2&activation_code=$3 [NC,L]
+
+RewriteRule ^login/?$ login.php [NC,L]
+RewriteRule ^process-login/?$ process_login.php [NC,L]
+RewriteRule ^logout/?$ logout.php [NC,L]
+
+RewriteRule ^account-creation/?$ signup.php [NC,L]
+RewriteRule ^process-signup/?$ process_signup.php [NC,L]
+
+RewriteRule ^process-reset-password/?$ process_reset_password.php [NC,L]
+
+RewriteRule ^forgot-password/?$ forgot_password.php [NC,L]
+RewriteRule ^process-forgot-password/?$ process_forgot_password.php [NC,L]
+
+RewriteRule ^set-new-password/([A-Za-z0-9-_]+)/([A-Za-z0-9-_]+)/?$ set_new_password.php?id=$1&slug=$2 [NC,L]
+RewriteRule ^process-set-new-password/?$ process_set_new_password.php [NC,L]
+
+RewriteRule ^change-password/?$ change_password.php [NC,L]
+RewriteRule ^process-change-password/?$ process_change_password.php [NC,L]
+
+RewriteRule ^product/([A-Za-z0-9-_]+)/?$ product.php?slug=$1   [NC,L]
+
+RewriteRule ^product_search/?$ main_search.php   [NC,L]
+
+RewriteRule ^thankyou/?$ thankyou.php [NC,L]
+
+RewriteRule ^accessories/?$ accessories.php [NC,L]
+
+RewriteRule ^custome/?$ custome.php [NC,L]
+RewriteRule ^custom-form/?$ custom_form.php [NC,L]
+
+RewriteRule ^contact-form/?$ contact_form.php [NC,L]
+
+RewriteRule ^request-form/?$ request_form.php [NC,L]
+
+RewriteRule ^help/?$ help.php [NC,L]
+
+#RewriteRule ^order-status/([A-Za-z0-9-_]+)/?$ order_status.php?payment_id=$1 [NC,L]
+RewriteRule ^order-status/([A-Za-z0-9-_]+)/?$ order_status.php?order_id=$1 [NC,L]
+
+RewriteRule ^our-partners/?$ our_partners.php [NC,L]
+
+RewriteRule ^our-retailers/?$ our_retailer.php [NC,L]
+
+RewriteRule ^order-tracking/?$ order_tracking.php [NC,L]
+
+RewriteRule ^marketing-requests/?$ marketing_requests.php [NC,L]
+
+RewriteRule ^10vs20-gelatin/?$ 10vs20_gelatin.php [NC,L]
+
+RewriteRule ^remelting-instruction/?$ remelting_instruction.php [NC,L]
+
+RewriteRule ^gvt-quote/?$ gvt_quote.php [NC,L]
+
+RewriteRule ^checkout-login/?$ checkout_login.php [NC,L]
+
+RewriteRule ^humimic-medical/?$ humimic_medical.php [NC,L]
+
+RewriteRule ^mobile-search/?$ mobile_search.php [NC,L]
+
+RewriteRule ^apparel/([A-Za-z0-9-_]+)/?$ apparel.php?slug=$1 [NC,L]
+RewriteRule ^apparel/?$ apparel.php [NC,L]
+
+RewriteRule ^forgot-password-send/?$ forgot_password_send.php [NC,L]
+
+RewriteRule ^reset-password-success/?$ reset_password_success.php [NC,L]
+
+RewriteRule ^shipstationxml\.xml/?$ shipstationxml.php [NC,L]
+
+RewriteRule ^shipstationxmll\.xml/?$ shipstationxmll.php [NC,L]
+
+RewriteRule ^shipstationxml_test/?$ shipstationxml_test.php [NC,L]
+
+RewriteRule ^quotations/?$ quotations.php [NC,L]
+
+
+## EXPIRES CACHING ##
+
+## EXPIRES CACHING ##
+
+# Disable caching for CSS files
+<FilesMatch "\.(css)$">
+    Header set Cache-Control "no-store, no-cache, must-revalidate, proxy-revalidate"
+    Header set Pragma "no-cache"
+    Header set Expires "0"
+</FilesMatch>
+
+# Disable caching for image files (JPG, PNG, GIF, BMP, WebP)
+<FilesMatch "\.(jpg|jpeg|png|gif|bmp|webp)$">
+    Header set Cache-Control "no-store, no-cache, must-revalidate, proxy-revalidate"
+    Header set Pragma "no-cache"
+    Header set Expires "0"
+</FilesMatch>

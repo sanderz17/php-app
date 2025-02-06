@@ -1,0 +1,2 @@
+RewriteEngine On
+RewriteRule ^Instructions_4x6postcard_verB_Metal_and_Plastic\.pdf$ https://clearballistics.com/remelting-instruction [NC,R=302,L]
