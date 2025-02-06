@@ -18,10 +18,6 @@ jobs:
       with:
         php-version: '7.4.33'  # Specify the PHP version you want to use
 
-    - name: Install dependencies
-      run: |
-        composer install  # Install PHP dependencies
-
   deploy:
     needs: build
     runs-on: ubuntu-latest  # Use Ubuntu runner for deployment
