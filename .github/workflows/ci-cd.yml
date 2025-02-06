@@ -1,0 +1,56 @@
+name: PHP Apache2 CI/CD Pipeline
+
+on:
+  push:
+    branches:
+      - main  # Trigger the pipeline on push to the main branch
+
+jobs:
+  build:
+    runs-on: ubuntu-latest  # Use an Ubuntu runner
+
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v2  # Checkout the repository code
+
+    - name: Set up PHP
+      uses: shivammathur/setup-php@v2
+      with:
+        php-version: '7.4.33'  # Specify the PHP version you want to use
+
+    - name: Install dependencies
+      run: |
+        composer install  # Install PHP dependencies
+
+  deploy:
+    needs: build
+    runs-on: ubuntu-latest  # Use Ubuntu runner for deployment
+
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v2  # Checkout the repository code again
+
+    - name: Set up AWS CLI
+      uses: aws-actions/configure-aws-credentials@v1
+      with:
+        aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY_ID }}
+        aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+        aws-region: ${{ secrets.AWS_REGION }}
+
+    - name: Upload PHP code to EC2
+      run: |
+        echo "${{ secrets.EC2_PRIVATE_KEY }}" > private_key.pem  # Save the private key to a file
+        chmod 600 private_key.pem  # Secure the private key
+
+        # Copy PHP code to EC2 instance
+        scp -o StrictHostKeyChecking=no -i private_key.pem -r * ubuntu@${{ secrets.EC2_INSTANCE_PUBLIC_IP }}:/var/www/html/webapp/  # Adjust the destination path as needed
+
+    - name: Restart Apache2 on EC2
+      run: |
+        echo "${{ secrets.EC2_PRIVATE_KEY }}" > private_key.pem  # Save the private key again
+        chmod 600 private_key.pem  # Secure the private key
+
+        # SSH into the EC2 instance and restart Apache2
+        ssh -o StrictHostKeyChecking=no -i private_key.pem ubuntu@${{ secrets.EC2_INSTANCE_PUBLIC_IP }} << 'EOF'
+          sudo systemctl restart apache2
+        EOF
