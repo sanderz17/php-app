@@ -1,0 +1,120 @@
+{
+	"info": {
+		"_postman_id": "0fd02d42-2f96-46b5-920e-559223804d1b",
+		"name": "cb_shinstation",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "https://ssapi.shipstation.com/orders",
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Basic YzAwMTliNjUzNWNkNDU1MWEyZTdkNTEyN2Q1MWNjNmM6NmE0M2U1Yjg5MDFiNDlmOWJiM2MzMzc2MDI4OGMzN2M=",
+						"type": "default"
+					}
+				],
+				"url": {
+					"raw": "https://ssapi.shipstation.com/orders",
+					"protocol": "https",
+					"host": [
+						"ssapi",
+						"shipstation",
+						"com"
+					],
+					"path": [
+						"orders"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "https://ssapi.shipstation.com/createorder",
+			"request": {
+				"method": "GET",
+				"header": []
+			},
+			"response": []
+		},
+		{
+			"name": "https://ssapi.shipstation.com/createorder",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Basic YzAwMTliNjUzNWNkNDU1MWEyZTdkNTEyN2Q1MWNjNmM6NmE0M2U1Yjg5MDFiNDlmOWJiM2MzMzc2MDI4OGMzN2M=",
+						"type": "default"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"orderNumber\": \"Test-0000012\",\n    \"orderDate\": \"2023-04-03T08:46:27.0000000\",\n    \"orderStatus\": \"awaiting_payment\",\n    \"billTo\": {\n        \"name\": \"The President\",\n        \"company\": null,\n        \"street1\": null,\n        \"street2\": null,\n        \"street3\": null,\n        \"city\": null,\n        \"state\": null,\n        \"postalCode\": null,\n        \"country\": null,\n        \"phone\": null,\n        \"residential\": null\n    },\n    \"shipTo\": {\n        \"name\": \"The President\",\n        \"company\": null,\n        \"street1\": null,\n        \"street2\": null,\n        \"street3\": null,\n        \"city\": null,\n        \"state\": null,\n        \"postalCode\": null,\n        \"country\": null,\n        \"phone\": null,\n        \"residential\": null\n    },\n    \"items\": [\n        {\n            \"orderItemId\": 1795601530,\n            \"lineItemKey\": \"24581\",\n            \"sku\": \"852844007000\",\n            \"name\": \"10% Gel FBI Block\",\n            \"imageUrl\": \"https://www.clearballistics.com/wp-content/uploads/2016/03/799804943698-1-100x100.jpg\",\n            \"weight\": {\n                \"value\": 296.53,\n                \"units\": \"ounces\",\n                \"WeightUnits\": 1\n            },\n            \"quantity\": 1,\n            \"unitPrice\": 83.98,\n            \"taxAmount\": null,\n            \"shippingAmount\": null,\n            \"warehouseLocation\": null,\n            \"options\": [],\n            \"productId\": 19062436,\n            \"fulfillmentSku\": null,\n            \"adjustment\": false,\n            \"upc\": null,\n            \"createDate\": \"2023-04-02T08:14:58.46\",\n            \"modifyDate\": \"2023-04-02T08:14:58.46\"\n        },\n        {\n            \"orderItemId\": 1795601532,\n            \"lineItemKey\": \"24582\",\n            \"sku\": \"852844007574\",\n            \"name\": \"FBI Block Mold\",\n            \"imageUrl\": \"https://www.clearballistics.com/wp-content/uploads/2016/02/mold001-100x100.jpg\",\n            \"weight\": {\n                \"value\": 240.00,\n                \"units\": \"ounces\",\n                \"WeightUnits\": 1\n            },\n            \"quantity\": 1,\n            \"unitPrice\": 89.98,\n            \"taxAmount\": null,\n            \"shippingAmount\": null,\n            \"warehouseLocation\": null,\n            \"options\": [],\n            \"productId\": 19062459,\n            \"fulfillmentSku\": null,\n            \"adjustment\": false,\n            \"upc\": null,\n            \"createDate\": \"2023-04-02T08:14:58.46\",\n            \"modifyDate\": \"2023-04-02T08:14:58.46\"\n        },\n        {\n            \"orderItemId\": 1795601533,\n            \"lineItemKey\": null,\n            \"sku\": \"total-discount\",\n            \"name\": \"Total Discount\",\n            \"imageUrl\": null,\n            \"weight\": {\n                \"value\": 0.00,\n                \"units\": \"ounces\",\n                \"WeightUnits\": 1\n            },\n            \"quantity\": 1,\n            \"unitPrice\": -17.40,\n            \"taxAmount\": null,\n            \"shippingAmount\": null,\n            \"warehouseLocation\": null,\n            \"options\": [],\n            \"productId\": null,\n            \"fulfillmentSku\": null,\n            \"adjustment\": true,\n            \"upc\": null,\n            \"createDate\": \"2023-04-02T08:14:58.46\",\n            \"modifyDate\": \"2023-04-02T08:14:58.46\"\n        }\n    ],\n    \"orderTotal\": 181.42,\n    \"amountPaid\": 181.42,\n    \"taxAmount\": 0.00,\n    \"shippingAmount\": 24.86,\n    \"weight\": {\n        \"value\": 96.00,\n        \"units\": \"ounces\",\n        \"WeightUnits\": 1\n    },\n    \"advancedOptions\": {\n        \"warehouseId\": 1016907,\n        \"nonMachinable\": false,\n        \"saturdayDelivery\": false,\n        \"containsAlcohol\": false,\n        \"mergedOrSplit\": false,\n        \"mergedIds\": [],\n        \"parentId\": null,\n        \"storeId\": 544990,\n        \"customField1\": \"\",\n        \"customField2\": null,\n        \"customField3\": null,\n        \"source\": null,\n        \"billToParty\": null,\n        \"billToAccount\": null,\n        \"billToPostalCode\": null,\n        \"billToCountryCode\": null,\n        \"billToMyOtherAccount\": null\n    }\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://ssapi.shipstation.com/orders/createorder",
+					"protocol": "https",
+					"host": [
+						"ssapi",
+						"shipstation",
+						"com"
+					],
+					"path": [
+						"orders",
+						"createorder"
+					]
+				},
+				"description": "working post order"
+			},
+			"response": []
+		},
+		{
+			"name": "https://ssapi.shipstation.com/createorder",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Basic YzAwMTliNjUzNWNkNDU1MWEyZTdkNTEyN2Q1MWNjNmM6NmE0M2U1Yjg5MDFiNDlmOWJiM2MzMzc2MDI4OGMzN2M=",
+						"type": "default"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"orderNumber\": \"SWU-00002\",\n    \"orderDate\": \"2023-04-26\",\n    \"orderStatus\": \"awaiting_shipment\",\n    \"billTo\": {\n        \"name\": \"Joel Edwards\",\n        \"company\": \"company\",\n        \"street1\": \"street\",\n        \"street2\": \"street2\",\n        \"street3\": \"street3\",\n        \"city\": \"kansas\",\n        \"state\": \"georgia\",\n        \"postalCode\": \"55685\",\n        \"country\": \"US\",\n        \"phone\": \"8888888\",\n        \"residential\": true\n    },\n    \"shipTo\": {\n        \"name\": \"Joel Edwards\",\n        \"company\": \"company\",\n        \"street1\": \"street\",\n        \"street2\": \"street2\",\n        \"street3\": \"street3\",\n        \"city\": \"georgia\",\n        \"state\": \"kansas\",\n        \"postalCode\": \"55685\",\n        \"country\": \"US\",\n        \"phone\": \"8888888\",\n        \"residential\": true\n    },\n    \"items\": [\n        {\n            \"orderItemId\": 1795601530,\n            \"lineItemKey\": \"24581\",\n            \"sku\": \"852844007000\",\n            \"name\": \"10% Gel FBI Block\",\n            \"imageUrl\": \"https://www.clearballistics.com/wp-content/uploads/2016/03/799804943698-1-100x100.jpg\",\n            \"weight\": {\n                \"value\": 17.2,\n                \"units\": \"lbs\",\n                \"WeightUnits\": 1\n            },\n            \"quantity\": 1,\n            \"unitPrice\": 67.98,\n            \"taxAmount\": null,\n            \"shippingAmount\": null,\n            \"warehouseLocation\": null,\n            \"options\": [],\n            \"productId\": 19062436,\n            \"fulfillmentSku\": null,\n            \"adjustment\": false,\n            \"upc\": null,\n            \"createDate\": \"2023-04-02T08:14:58.46\",\n            \"modifyDate\": \"2023-04-02T08:14:58.46\"\n        }\n    ],\n    \"orderTotal\": 151.68,\n    \"amountPaid\": 151.68,\n    \"taxAmount\": 0.00,\n    \"shippingAmount\": 53.70,\n    \"weight\": {\n        \"value\": 17.2,\n        \"units\": \"pounds\",\n        \"WeightUnits\": 1\n    }\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://ssapi.shipstation.com/orders/createorder",
+					"protocol": "https",
+					"host": [
+						"ssapi",
+						"shipstation",
+						"com"
+					],
+					"path": [
+						"orders",
+						"createorder"
+					]
+				},
+				"description": "working post order with item"
+			},
+			"response": []
+		}
+	]
+}

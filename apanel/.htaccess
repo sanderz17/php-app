@@ -1,0 +1,195 @@
+RewriteOptions inherit
+# For security reasons, Option followsymlinks cannot be overridden.
+#Options +FollowSymLinks
+Options +SymLinksIfOwnerMatch
+
+# 50MB  (uncomment on live site )
+#php_value post_max_size 52428800 
+#php_value upload_max_filesize 80M 
+
+
+RewriteEngine on
+
+RewriteRule ^404/?$ 404.php [NC,L]
+
+RewriteRule ^apanel/?$ apanel/index.php [NC,L]
+RewriteRule ^index/?$ index.php [NC,L]
+
+RewriteRule ^process-login/?$ process_login.php [NC,L]
+RewriteRule ^logout/?$ logout.php [NC,L]
+
+RewriteRule ^forgot-password/?$ forgot_password.php [NC,L]
+RewriteRule ^process-forgot-pass/?$ process_forgot_password.php [NC,L]
+
+RewriteRule ^activate-account/([A-Za-z0-9-_]+)/([A-Za-z0-9-_]+)/?$ activate_account.php?id=$1&activation_code=$2 [NC,L]
+
+RewriteRule ^set-new-password/([A-Za-z0-9-_]+)/([A-Za-z0-9-_]+)/?$ set_new_password.php?id=$1&slug=$2 [NC,L]
+RewriteRule ^process-set-new-password/?$ process_set_new_password.php [NC,L]
+
+RewriteRule ^dashboard/?$ dashboard.php [NC,L]
+RewriteRule ^homepage/?$ homepage.php [NC,L]
+RewriteRule ^notification/?$ notification.php [NC,L]
+RewriteRule ^my-account/?$ my_account.php [NC,L]
+RewriteRule ^change-password/?$ change_password.php [NC,L]
+RewriteRule ^ajax-save-image/?$ ajax_save_image.php [NC,L]
+RewriteRule ^setting/?$ setting.php [NC,L]
+
+## User ##
+RewriteRule ^manage-user/?$ manage_user.php [NC,L]
+RewriteRule ^add-user/([A-Za-z0-9-_]+)/?$ add_user.php?mode=$1 [NC,L]
+RewriteRule ^add-user/([A-Za-z0-9-_]+)/([A-Za-z0-9-_]+)/?$ add_user.php?mode=$1&id=$2 [NC,L]
+
+## Symptom ##
+RewriteRule ^manage-symptom/?$ manage_symptom.php [NC,L]
+RewriteRule ^add-symptom/([A-Za-z0-9-_]+)/?$ add_symptom.php?mode=$1 [NC,L]
+RewriteRule ^add-symptom/([A-Za-z0-9-_]+)/([A-Za-z0-9-_]+)/?$ add_symptom.php?mode=$1&id=$2 [NC,L]
+
+## Condition ##
+RewriteRule ^manage-condition/?$ manage_condition.php [NC,L]
+RewriteRule ^add-condition/([A-Za-z0-9-_]+)/?$ add_condition.php?mode=$1 [NC,L]
+RewriteRule ^add-condition/([A-Za-z0-9-_]+)/([A-Za-z0-9-_]+)/?$ add_condition.php?mode=$1&id=$2 [NC,L]
+
+## Questions of Condition ##
+RewriteRule ^question-condition/?$ question_condition.php [NC,L]
+RewriteRule ^question-condition/([A-Za-z0-9-_]+)/?$ question_condition.php?id=$1 [NC,L]
+
+## General ##
+#RewriteRule ^manage-medication/?$ manage_medication.php [NC,L]
+RewriteRule ^manage-therapy/?$ manage_therapy.php [NC,L]
+
+## Medication ##
+RewriteRule ^manage-medication/?$ manage_medication.php [NC,L]
+RewriteRule ^add-medication/([A-Za-z0-9-_]+)/?$ add_medication.php?mode=$1 [NC,L]
+RewriteRule ^add-medication/([A-Za-z0-9-_]+)/([A-Za-z0-9-_]+)/?$ add_medication.php?mode=$1&id=$2 [NC,L]
+
+## Suggestion ##
+RewriteRule ^manage-suggestion/?$ manage_suggestion.php [NC,L]
+RewriteRule ^add-suggestion/([A-Za-z0-9-_]+)/?$ add_suggestion.php?mode=$1 [NC,L]
+RewriteRule ^add-suggestion/([A-Za-z0-9-_]+)/([A-Za-z0-9-_]+)/?$ add_suggestion.php?mode=$1&id=$2 [NC,L]
+RewriteRule ^link-suggestion/([A-Za-z0-9-_]+)/?$ link_suggestion.php?id=$1 [NC,L]
+
+## Question ##
+RewriteRule ^manage-question/?$ manage_question.php [NC,L]
+RewriteRule ^add-question/([A-Za-z0-9-_]+)/?$ add_question.php?mode=$1 [NC,L]
+RewriteRule ^add-question/([A-Za-z0-9-_]+)/([A-Za-z0-9-_]+)/?$ add_question.php?mode=$1&id=$2 [NC,L]
+
+## Static Page ##
+RewriteRule ^manage-static-page/?$ manage_static_page.php [NC,L]
+RewriteRule ^add-static-page/([A-Za-z0-9-_]+)/?$ add_static_page.php?mode=$1 [NC,L]
+RewriteRule ^add-static-page/([A-Za-z0-9-_]+)/([A-Za-z0-9-_]+)/?$ add_static_page.php?mode=$1&id=$2 [NC,L]
+
+## User Plan ##
+RewriteRule ^manage-user-plan/?$ manage_user_plan.php [NC,L]
+RewriteRule ^add-user-plan/([A-Za-z0-9-_]+)/?$ add_user_plan.php?mode=$1 [NC,L]
+RewriteRule ^add-user-plan/([A-Za-z0-9-_]+)/([A-Za-z0-9-_]+)/([A-Za-z0-9-_]+)/?$ add_user_plan.php?mode=$1&user_id=$2&condition_id=$3 [NC,L]
+RewriteRule ^user-data/([A-Za-z0-9-_]+)/([A-Za-z0-9-_]+)/([A-Za-z0-9-_]+)/?$ user_plan_data.php?mode=$1&user_id=$2&condition_id=$3 [NC,L]
+RewriteRule ^tracker-data/([A-Za-z0-9-_]+)/([A-Za-z0-9-_]+)/([A-Za-z0-9-_]+)/?$ user_tracker_data.php?mode=$1&user_id=$2&condition_id=$3 [NC,L]
+
+## CTA Contact ##
+RewriteRule ^manage-contact/?$ manage_contact.php [NC,L]
+RewriteRule ^add-contact/([A-Za-z0-9-_]+)/?$ add_contact.php?mode=$1 [NC,L]
+RewriteRule ^add-contact/([A-Za-z0-9-_]+)/([A-Za-z0-9-_]+)/?$ add_contact.php?mode=$1&id=$2 [NC,L]
+
+
+## Category ##
+RewriteRule ^manage-category/?$ manage_category.php [NC,L]
+RewriteRule ^add-category/([A-Za-z0-9-_]+)/?$ add_category.php?mode=$1 [NC,L]
+RewriteRule ^add-category/([A-Za-z0-9-_]+)/([A-Za-z0-9-_]+)/?$ add_category.php?mode=$1&id=$2 [NC,L]
+
+
+## Product ##
+RewriteRule ^manage-product/?$ manage_product.php [NC,L]
+RewriteRule ^add-product/([A-Za-z0-9-_]+)/?$ add_product.php?mode=$1 [NC,L]
+RewriteRule ^add-product/([A-Za-z0-9-_]+)/([A-Za-z0-9-_]+)/?$ add_product.php?mode=$1&id=$2 [NC,L]
+
+## Blog ##
+RewriteRule ^manage-blog/?$ manage_blog.php [NC,L]
+RewriteRule ^add-blog/([A-Za-z0-9-_]+)/?$ add_blog.php?mode=$1 [NC,L]
+RewriteRule ^add-blog/([A-Za-z0-9-_]+)/([A-Za-z0-9-_]+)/?$ add_blog.php?mode=$1&id=$2 [NC,L]
+
+RewriteRule ^manage-blog-category/?$ manage_blog_category.php [NC,L]
+
+
+## Product Alternate Images ##
+RewriteRule ^manage-alt-image/([A-Za-z0-9-_]+)/?$ manage_alt_image.php?product_id=$1 [NC,L]
+RewriteRule ^add-alt-image/([A-Za-z0-9-_]+)/([A-Za-z0-9-_]+)/?$ add_alt_image.php?mode=$1&product_id=$2 [NC,L]
+RewriteRule ^add-alt-image/([A-Za-z0-9-_]+)/([A-Za-z0-9-_]+)/([A-Za-z0-9-_]+)/?$ add_alt_image.php?mode=$1&product_id=$2&id=$3 [NC,L]
+
+RewriteRule ^compatible-accessories/([A-Za-z0-9-_]+)/?$ compatible-accessories.php?product_id=$1 [NC,L]
+RewriteRule ^compatible-accessories/([A-Za-z0-9-_]+)/([A-Za-z0-9-_]+)/?$ compatible-accessories.php?mode=$1&product_id=$2 [NC,L]
+
+## Testimonial ##
+RewriteRule ^manage-testimonial/?$ manage_testimonial.php [NC,L]
+RewriteRule ^add-testimonial/([A-Za-z0-9-_]+)/?$ add_testimonial.php?mode=$1 [NC,L]
+RewriteRule ^add-testimonial/([A-Za-z0-9-_]+)/([A-Za-z0-9-_]+)/?$ add_testimonial.php?mode=$1&id=$2 [NC,L]
+
+## Clients ##
+RewriteRule ^manage-client/?$ manage_client.php [NC,L]
+RewriteRule ^add-client/([A-Za-z0-9-_]+)/?$ add_client.php?mode=$1 [NC,L]
+RewriteRule ^add-client/([A-Za-z0-9-_]+)/([A-Za-z0-9-_]+)/?$ add_client.php?mode=$1&id=$2 [NC,L]
+
+## Faq ##
+RewriteRule ^manage-faq/?$ manage_faq.php [NC,L]
+RewriteRule ^add-faq/([A-Za-z0-9-_]+)/?$ add_faq.php?mode=$1 [NC,L]
+RewriteRule ^add-faq/([A-Za-z0-9-_]+)/([A-Za-z0-9-_]+)/?$ add_faq.php?mode=$1&id=$2 [NC,L]
+
+## compatible Accessories ##
+RewriteRule ^manage-accessories/?$ manage_accessories.php [NC,L]
+RewriteRule ^add-accessories/([A-Za-z0-9-_]+)/?$ add_accessories.php?mode=$1 [NC,L]
+RewriteRule ^add-accessories/([A-Za-z0-9-_]+)/([A-Za-z0-9-_]+)/?$ add_accessories.php?mode=$1&id=$2 [NC,L]
+
+## product category ##
+RewriteRule ^manage-accessories/([A-Za-z0-9-_]+)/?$ manage_accessories.php?product_id=$1 [NC,L]
+RewriteRule ^add-accessories/([A-Za-z0-9-_]+)/([A-Za-z0-9-_]+)/?$ add_accessories.php?mode=$1&id=$2 [NC,L]
+RewriteRule ^add-accessories/([A-Za-z0-9-_]+)/([A-Za-z0-9-_]+)/([A-Za-z0-9-_]+)/?$ add_accessories.php?mode=$1&product_id=$2&id=$3 [NC,L]
+
+## Faq ##
+RewriteRule ^manage-reviewImg/?$ manage_reviewImg.php [NC,L]
+RewriteRule ^add-reviewImg/([A-Za-z0-9-_]+)/?$ add_reviewImg.php?mode=$1 [NC,L]
+RewriteRule ^add-reviewImg/([A-Za-z0-9-_]+)/([A-Za-z0-9-_]+)/?$ add_reviewImg.php?mode=$1&id=$2 [NC,L]
+
+## Contact ##
+RewriteRule ^manage-contact/?$ manage_contact.php [NC,L]
+RewriteRule ^add-contact/([A-Za-z0-9-_]+)/?$ add_contact.php?mode=$1 [NC,L]
+RewriteRule ^add-contact/([A-Za-z0-9-_]+)/([A-Za-z0-9-_]+)/?$ add_contact.php?mode=$1&id=$2 [NC,L]
+
+## explore category ##
+RewriteRule ^manage-explore-category/?$ manage_explore_category.php [NC,L]
+RewriteRule ^add-explore-category/([A-Za-z0-9-_]+)/?$ add_explore_category.php?mode=$1 [NC,L]
+RewriteRule ^add-explore-category/([A-Za-z0-9-_]+)/([A-Za-z0-9-_]+)/?$ add_explore_category.php?mode=$1&id=$2 [NC,L]
+
+## Coupon ##
+RewriteRule ^manage-coupon/?$ manage_coupon.php [NC,L]
+RewriteRule ^add-coupon/([A-Za-z0-9-_]+)/?$ add_coupon.php?mode=$1 [NC,L]
+RewriteRule ^add-coupon/([A-Za-z0-9-_]+)/([A-Za-z0-9-_]+)/?$ add_coupon.php?mode=$1&id=$2 [NC,L]
+
+## Subscribers ##
+RewriteRule ^manage-subscriber/?$ manage_subscribers.php [NC,L] 
+
+## video library ##
+RewriteRule ^manage-video/?$ manage_video.php [NC,L]
+RewriteRule ^add-video/([A-Za-z0-9-_]+)/?$ add_video.php?mode=$1 [NC,L]
+RewriteRule ^add-video/([A-Za-z0-9-_]+)/([A-Za-z0-9-_]+)/?$ add_video.php?mode=$1&id=$2 [NC,L]
+
+## quotations library ##
+RewriteRule ^manage-quotations/?$ manage_quotations.php [NC,L]
+RewriteRule ^add-quotations/([A-Za-z0-9-_]+)/?$ add_quotations.php?mode=$1 [NC,L]
+RewriteRule ^add-quotations/([A-Za-z0-9-_]+)/([A-Za-z0-9-_]+)/?$ add_quotations.php?mode=$1&id=$2 [NC,L]
+RewriteRule ^quote-calculation/([A-Za-z0-9-_]+)/([A-Za-z0-9-_]+)/?$ quote_calculation.php?mode=$1&id=$2 [NC,L]
+
+## accessories image ## 
+RewriteRule ^manage-big-img/([A-Za-z0-9-_]+)/?$ manage_big_img.php?prod_id=$1 [NC,L]
+RewriteRule ^add-big-img/([A-Za-z0-9-_]+)/([A-Za-z0-9-_]+)/?$ add_big_img.php?mode=$1&prod_id=$2 [NC,L]
+RewriteRule ^add-big-img/([A-Za-z0-9-_]+)/([A-Za-z0-9-_]+)/([A-Za-z0-9-_]+)/?$ add_big_img.php?mode=$1&id=$2&prod_id=$3 [NC,L]
+
+
+## Order ##
+RewriteRule ^manage-order/?$ manage_order.php [NC,L]
+RewriteRule ^manage_order/([A-Za-z0-9-_]+)/([A-Za-z0-9-_]+)/?$ manage_order.php?mode=$1&order_id=$2 [NC,L]
+RewriteRule ^view-order/([A-Za-z0-9-_]+)/?$ view_order.php?id=$1 [NC,L]
+#RewriteRule ^view-order/([A-Za-z0-9-_]+)/([A-Za-z0-9-_]+)/?$ view_order.php?mode=$1&id=$2 [NC,L]
+RewriteRule ^track-order/([A-Za-z0-9-_]+)/?$ track_order.php?id=$1 [NC,L]
+RewriteRule ^manage-order-report/?$ manage_order_report.php [NC,L]
+
+## Subscribers ##
+RewriteRule ^manage-subscribers/?$ manage_subscribers.php [NC,L]
