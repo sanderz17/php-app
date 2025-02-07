@@ -34,6 +34,7 @@
          <img src="<?php echo SITEURL; ?>img/home/<?php echo $img; ?>" width="60%">
          <h4>Coming soon</h4>
       </section>
+      <section> This is apparel page</section>
       <!-- about section end -->
       <?php include 'front_include/footer.php'; ?>
       <?php include 'front_include/js.php'; ?>
